@@ -14,7 +14,7 @@ fun main() {
     var sum = 0
     var powerSum = 0
 
-    File("src/day2/input.txt").forEachLine {
+    File("src/day2/input.txt").forEachLine { line ->
         counter += 1
         val groupMinimums = mutableMapOf(
                 "red" to 0,
@@ -22,8 +22,8 @@ fun main() {
                 "blue" to 0
         )
 
-        val groups = "(\\d+) (\\w+)".toRegex().findAll(it, 0)
-        for (group in groups) {
+        val groups = "(\\d+) (\\w+)".toRegex().findAll(line, 0)
+        groups.forEach { group ->
             val value = group.groupValues[1].toInt()
             val colour = group.groupValues[2]
 
